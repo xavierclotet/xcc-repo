@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "projects": {
+    "xcc-repo": {
+      "projectType": "application",
+      "root": "apps/xcc-repo",
+      "sourceRoot": "apps/xcc-repo/src",
+      "prefix": "xcc-repo",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/xcc-repo",
+            "index": "apps/xcc-repo/src/index.html",
+            "main": "apps/xcc-repo/src/main.ts",
+            "polyfills": "apps/xcc-repo/src/polyfills.ts",
+            "tsConfig": "apps/xcc-repo/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/xcc-repo/src/favicon.ico",
+              "apps/xcc-repo/src/assets"
+            ],
+            "styles": ["apps/xcc-repo/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/xcc-repo/src/environments/environment.ts",
+                  "with": "apps/xcc-repo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "xcc-repo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "xcc-repo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "xcc-repo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/xcc-repo/src/**/*.ts",
+              "apps/xcc-repo/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/xcc-repo"],
+          "options": {
+            "jestConfig": "apps/xcc-repo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "xcc-repo-e2e": {
+      "root": "apps/xcc-repo-e2e",
+      "sourceRoot": "apps/xcc-repo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/xcc-repo-e2e/cypress.json",
+            "tsConfig": "apps/xcc-repo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "xcc-repo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "xcc-repo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/xcc-repo-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "xcc-repo",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "xcc-repo"
+}
