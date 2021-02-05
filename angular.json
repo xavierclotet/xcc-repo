@@ -139,6 +139,31 @@
           }
         }
       }
+    },
+    "ui-test": {
+      "projectType": "library",
+      "root": "libs/ui/test",
+      "sourceRoot": "libs/ui/test/src",
+      "prefix": "xcc",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/test/src/**/*.ts",
+              "libs/ui/test/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/test"],
+          "options": {
+            "jestConfig": "libs/ui/test/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -18,6 +18,7 @@
   "projects": {
     "xcc": { "tags": [] },
     "xcc-e2e": { "tags": [], "implicitDependencies": ["xcc"] },
-    "ui-toolbar": { "tags": ["type:feature"] }
+    "ui-toolbar": { "tags": ["type:feature"] },
+    "ui-test": { "tags": [] }
   }
 }

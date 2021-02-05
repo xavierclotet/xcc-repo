@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@xcc-repo/ui": ["libs/ui/src/index.ts"],
-      "@xcc/ui/toolbar": ["libs/ui/toolbar/src/index.ts"]
+      "@xcc/ui/toolbar": ["libs/ui/toolbar/src/index.ts"],
+      "@xcc/ui/test": ["libs/ui/test/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
