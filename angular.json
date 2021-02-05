@@ -1,26 +1,23 @@
 {
   "version": 1,
   "projects": {
-    "xcc-repo": {
+    "xcc": {
       "projectType": "application",
-      "root": "apps/xcc-repo",
-      "sourceRoot": "apps/xcc-repo/src",
-      "prefix": "xcc-repo",
+      "root": "apps/xcc",
+      "sourceRoot": "apps/xcc/src",
+      "prefix": "xcc",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/apps/xcc-repo",
-            "index": "apps/xcc-repo/src/index.html",
-            "main": "apps/xcc-repo/src/main.ts",
-            "polyfills": "apps/xcc-repo/src/polyfills.ts",
-            "tsConfig": "apps/xcc-repo/tsconfig.app.json",
+            "outputPath": "dist/apps/xcc",
+            "index": "apps/xcc/src/index.html",
+            "main": "apps/xcc/src/main.ts",
+            "polyfills": "apps/xcc/src/polyfills.ts",
+            "tsConfig": "apps/xcc/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/xcc-repo/src/favicon.ico",
-              "apps/xcc-repo/src/assets"
-            ],
-            "styles": ["apps/xcc-repo/src/styles.scss"],
+            "assets": ["apps/xcc/src/favicon.ico", "apps/xcc/src/assets"],
+            "styles": ["apps/xcc/src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
               "path": "webpack.config.js"
@@ -30,8 +27,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/xcc-repo/src/environments/environment.ts",
-                  "with": "apps/xcc-repo/src/environments/environment.prod.ts"
+                  "replace": "apps/xcc/src/environments/environment.ts",
+                  "with": "apps/xcc/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -59,82 +56,85 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "xcc-repo:build"
+            "browserTarget": "xcc:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "xcc-repo:build:production"
+              "browserTarget": "xcc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "xcc-repo:build"
+            "browserTarget": "xcc:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/xcc-repo/src/**/*.ts",
-              "apps/xcc-repo/src/**/*.html"
+              "apps/xcc/src/**/*.ts",
+              "apps/xcc/src/**/*.html"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/xcc-repo"],
+          "outputs": ["coverage/apps/xcc"],
           "options": {
-            "jestConfig": "apps/xcc-repo/jest.config.js",
+            "jestConfig": "apps/xcc/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "xcc-repo-e2e": {
-      "root": "apps/xcc-repo-e2e",
-      "sourceRoot": "apps/xcc-repo-e2e/src",
+    "xcc-e2e": {
+      "root": "apps/xcc-e2e",
+      "sourceRoot": "apps/xcc-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/xcc-repo-e2e/cypress.json",
-            "tsConfig": "apps/xcc-repo-e2e/tsconfig.e2e.json",
-            "devServerTarget": "xcc-repo:serve"
+            "cypressConfig": "apps/xcc-e2e/cypress.json",
+            "tsConfig": "apps/xcc-e2e/tsconfig.e2e.json",
+            "devServerTarget": "xcc:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "xcc-repo:serve:production"
+              "devServerTarget": "xcc:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/xcc-repo-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/xcc-e2e/**/*.{js,ts}"]
           }
         }
       }
     },
-    "ui": {
+    "ui-toolbar": {
       "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
-      "prefix": "xcc-repo",
+      "root": "libs/ui/toolbar",
+      "sourceRoot": "libs/ui/toolbar/src",
+      "prefix": "xcc",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/ui/toolbar/src/**/*.ts",
+              "libs/ui/toolbar/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
+          "outputs": ["coverage/libs/ui/toolbar"],
           "options": {
-            "jestConfig": "libs/ui/jest.config.js",
+            "jestConfig": "libs/ui/toolbar/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -166,6 +166,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "xcc-repo"
+  }
 }

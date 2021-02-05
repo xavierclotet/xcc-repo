@@ -1,5 +1,5 @@
 {
-  "name": "xcc-repo",
+  "name": "xcc",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -58,6 +58,8 @@
     "@nrwl/jest": "11.1.5",
     "@nrwl/tao": "11.1.5",
     "@nrwl/workspace": "11.1.5",
+    "@tailwindcss/forms": "0.2.1",
+    "@tailwindcss/typography": "0.4.0",
     "@types/jest": "26.0.8",
     "@types/node": "12.12.38",
     "@typescript-eslint/eslint-plugin": "4.3.0",

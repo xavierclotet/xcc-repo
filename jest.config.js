@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/xcc-repo', '<rootDir>/libs/ui'],
+  projects: ['<rootDir>/apps/xcc', '<rootDir>/libs/ui/toolbar'],
 };

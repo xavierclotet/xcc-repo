@@ -1,5 +1,5 @@
 {
-  "npmScope": "xcc-repo",
+  "npmScope": "xcc",
   "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "angular.json": "*",
@@ -16,8 +16,8 @@
     }
   },
   "projects": {
-    "xcc-repo": { "tags": [] },
-    "xcc-repo-e2e": { "tags": [], "implicitDependencies": ["xcc-repo"] },
-    "ui": { "tags": [] }
+    "xcc": { "tags": [] },
+    "xcc-e2e": { "tags": [], "implicitDependencies": ["xcc"] },
+    "ui-toolbar": { "tags": ["type:feature"] }
   }
 }
