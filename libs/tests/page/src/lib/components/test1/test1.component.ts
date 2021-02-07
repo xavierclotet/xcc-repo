@@ -1,12 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'xcc-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss'],
+  selector: 'xcc-test1',
+  templateUrl: './test1.component.html',
+  styleUrls: ['./test1.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TestComponent implements OnInit {
+export class Test1Component implements OnInit {
 
   constructor() { }
 
