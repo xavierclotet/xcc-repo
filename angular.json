@@ -139,6 +139,56 @@
           }
         }
       }
+    },
+    "tests-page": {
+      "projectType": "library",
+      "root": "libs/tests/page",
+      "sourceRoot": "libs/tests/page/src",
+      "prefix": "xcc",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tests/page/src/**/*.ts",
+              "libs/tests/page/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tests/page"],
+          "options": {
+            "jestConfig": "libs/tests/page/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tests-data-access": {
+      "projectType": "library",
+      "root": "libs/tests/data-access",
+      "sourceRoot": "libs/tests/data-access/src",
+      "prefix": "xcc",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/tests/data-access/src/**/*.ts",
+              "libs/tests/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/tests/data-access"],
+          "options": {
+            "jestConfig": "libs/tests/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

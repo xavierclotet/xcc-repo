@@ -1,4 +1,4 @@
-# XccRepo
+# Mono repository XCC
 
 How to delete an app? `nx g @nrwl/workspace:rm <project name>` or `nx g @nrwl/workspace:remove lib-name` 
 

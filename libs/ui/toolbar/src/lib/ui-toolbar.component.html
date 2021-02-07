@@ -2,6 +2,7 @@
 <nav class="bg-gray-100">
   <div class="max-w-6xl px-8 mx-auto">
     <div class="flex justify-between">
+
       <div class="flex space-x-4">
         <!-- logo -->
         <div>
@@ -17,8 +18,8 @@
 
         <!-- primary nav -->
         <div class="flex items-center invisible space-x-1 md:visible">
-          <a href="" class="px-3 py-5 text-gray-700 hover:text-gray-900">Features</a>
-          <a href="" class="px-3 py-5 text-gray-700 hover:text-gray-900">Pricing</a>
+          <a (click)="goTo('/tests')" class="px-3 py-5 text-gray-700 hover:text-gray-900">Tests</a>
+          <a (click)="goTo('/tests/1')" class="px-3 py-5 text-gray-700 hover:text-gray-900">Test 1</a>
         </div>
 
       </div>
@@ -43,13 +44,12 @@
 
       </div>
 
-
     </div>
   </div>
   <!--  mobile menu -->
   <div *ngIf="menuOpened" class="md:hidden">
-    <a href="#" class="py-2 px-4 text-sm block hover:bg-gray-200">Features</a>
-    <a href="#" class="py-2 px-4 text-sm block hover:bg-gray-200">Pricing</a>
+    <a (click)="goTo('/tests')" class="py-2 px-4 text-sm block hover:bg-gray-200">Tests</a>
+    <a (click)="goTo('/tests/1')" class="py-2 px-4 text-sm block hover:bg-gray-200">Test 1</a>
   </div>
 
 </nav>
@@ -57,6 +57,7 @@
 
 <!-- content -->
 
-<div class="py-32 text-center">
-  <h2 class="text-6xl font-extrabold">Navbars in Tailwind!</h2>
+<div class="py-16">
+  <!--  <h2 class="text-6xl font-extrabold">Navbars in Tailwind!</h2> -->
+  <ng-content></ng-content>
 </div>
